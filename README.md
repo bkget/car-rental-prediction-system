@@ -23,16 +23,16 @@ All code and assignments adhere to the **CRISP-DM (Cross-Industry Standard Proce
 
 | Module | Topic | Notebook / Code | Status |
 |---|---|---|:---:|
-| **01** | **Introduction to Machine Learning** | [Homework 1 Notebook](homework_notebooks/Homework%201:%20Introduction%20to%20Machine%20Learning.ipynb) | ✅ Completed |
-| **02** | Machine Learning for Regression | `homework_notebooks/02-regression/` | ⏳ In Progress |
-| **03** | Machine Learning for Classification | `homework_notebooks/03-classification/` | 📅 Upcoming |
-| **04** | Evaluation Metrics for Machine Learning | `homework_notebooks/04-evaluation/` | 📅 Upcoming |
+| **01** | **Introduction to Machine Learning** | [Homework 1 Notebook](notebooks/homeworks/Homework%201:%20Introduction%20to%20Machine%20Learning.ipynb) | ✅ Completed |
+| **02** | **Machine Learning for Regression** | [Homework 2 Notebook](notebooks/homeworks/Homework%202:%20Machine%20Learning%20for%20Regression.ipynb) | ✅ Completed |
+| **03** | **Machine Learning for Classification** | [Homework 3 Notebook](notebooks/homeworks/Homework%203:%20Machine%20Learning%20for%20Classification.ipynb) | ✅ Completed |
+| **04** | Evaluation Metrics for Machine Learning | `notebooks/homeworks/` | 📅 Upcoming |
 | **05** | Deploying Machine Learning Models | `deployment/` | 📅 Upcoming |
-| **06** | Decision Trees and Ensemble Learning | `homework_notebooks/06-trees/` | 📅 Upcoming |
+| **06** | Decision Trees and Ensemble Learning | `notebooks/homeworks/` | 📅 Upcoming |
 | **Project 1** | **Midterm Project** | `projects/midterm/` | 📅 Upcoming |
-| **08** | Deep Learning | `homework_notebooks/08-deep-learning/` | 📅 Upcoming |
-| **09** | Serverless Deep Learning | `homework_notebooks/09-serverless/` | 📅 Upcoming |
-| **10** | Kubernetes and TensorFlow Serving | `homework_notebooks/10-kubernetes/` | 📅 Upcoming |
+| **08** | Deep Learning | `notebooks/homeworks/` | 📅 Upcoming |
+| **09** | Serverless Deep Learning | `notebooks/homeworks/` | 📅 Upcoming |
+| **10** | Kubernetes and TensorFlow Serving | `notebooks/homeworks/` | 📅 Upcoming |
 | **Project 2** | **Capstone Project** | `projects/capstone/` | 📅 Upcoming |
 
 ---
@@ -53,7 +53,27 @@ Dataset used: [2026 Car Fuel Efficiency Dataset](data/car_fuel_efficiency_2026.c
 | **6** | **Median value of horsepower** | `Yes, it decreased` | Median before: `254.0` → mode: `252.0` → Median after imputation: `252.0` |
 | **7** | **Sum of weights** | `0.369` | Normal Equation: $w = (X^T X)^{-1} X^T y$, $\sum w \approx 0.3692$ |
 
-Full interactive code and outputs can be viewed in [`homework_notebooks/Homework 1: Introduction to Machine Learning.ipynb`](homework_notebooks/Homework%201:%20Introduction%20to%20Machine%20Learning.ipynb).
+Full interactive code and outputs can be viewed in [`notebooks/homeworks/Homework 1: Introduction to Machine Learning.ipynb`](notebooks/homeworks/Homework%201:%20Introduction%20to%20Machine%20Learning.ipynb).
+
+---
+
+## 📝 Homework 3: Machine Learning for Classification Summary
+
+Dataset used: [2026 Lead Scoring Dataset](data/course_lead_scoring_2026.csv) (`course_lead_scoring_2026.csv`)  
+Target: `converted` (binary classification)
+
+### Key Results & Submission Answers
+
+| # | Question | Answer | Method / Explanation |
+|---|---|:---:|---|
+| **1** | **Mode of `industry`** | `technology` | Most frequent category with 1,173 occurrences |
+| **2** | **Features with biggest correlation** | `interaction_count` and `lead_score` | Pearson correlation coefficient $r = 0.9157$ |
+| **3** | **Feature with highest mutual information** | `lead_source` | Mutual information score = 0.03 (vs employment_status: 0.02, industry: 0.00, location: 0.00) |
+| **4** | **Logistic regression accuracy** | `0.65` | Model accuracy on validation set = 0.6450 (rounds to **0.65**) |
+| **5** | **Feature with smallest accuracy difference** | `'number_of_courses_viewed'` | Accuracy drop when excluded: only **0.0020** (0.6450 → 0.6430) |
+| **6** | **Best parameter `C`** | `0.001` | Evaluated across $[10^{-6}, 10^{-5}, 10^{-4}, 10^{-3}]$; $C = 0.001$ gives top validation accuracy (0.645) |
+
+Full interactive code, correlation heatmap, and outputs can be viewed in [`notebooks/homeworks/Homework 3: Machine Learning for Classification.ipynb`](notebooks/homeworks/Homework%203:%20Machine%20Learning%20for%20Classification.ipynb).
 
 ---
 
@@ -62,10 +82,17 @@ Full interactive code and outputs can be viewed in [`homework_notebooks/Homework
 ```text
 ├── data/
 │   ├── car_fuel_efficiency_2026.csv     # 2026 Car fuel efficiency dataset (10k records)
-│   ├── data.csv                          # Car features and MSRP dataset (11.9k records)
-│   └── homework_2026.md                  # Official assignment instructions (Cohort 2026)
-├── homework_notebooks/
-│   └── Homework 1: Introduction to Machine Learning.ipynb   # Completed HW1 notebook
+│   ├── course_lead_scoring_2026.csv     # 2026 Lead scoring dataset (5k records)
+│   ├── homework_2026.md                  # Official assignment instructions for HW1
+│   └── homework_03.md                    # Official assignment instructions for HW3
+├── notebooks/
+│   ├── homeworks/
+│   │   ├── Homework 1: Introduction to Machine Learning.ipynb
+│   │   ├── Homework 2: Machine Learning for Regression.ipynb
+│   │   └── Homework 3: Machine Learning for Classification.ipynb
+│   ├── 01_eda.ipynb
+│   ├── 02_data_transformation.ipynb
+│   └── 03_training_and_analysis.ipynb
 ├── requirements.txt                      # Project dependencies
 ├── .gitignore                            # Clean git exclusion rules
 └── README.md                             # Project documentation & progress
