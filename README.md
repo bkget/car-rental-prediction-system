@@ -26,7 +26,7 @@ All code and assignments adhere to the **CRISP-DM (Cross-Industry Standard Proce
 | **01** | **Introduction to Machine Learning** | [Homework 1 Notebook](notebooks/homeworks/Homework%201:%20Introduction%20to%20Machine%20Learning.ipynb) | ✅ Completed |
 | **02** | **Machine Learning for Regression** | [Homework 2 Notebook](notebooks/homeworks/Homework%202:%20Machine%20Learning%20for%20Regression.ipynb) | ✅ Completed |
 | **03** | **Machine Learning for Classification** | [Homework 3 Notebook](notebooks/homeworks/Homework%203:%20Machine%20Learning%20for%20Classification.ipynb) | ✅ Completed |
-| **04** | Evaluation Metrics for Machine Learning | `notebooks/homeworks/` | 📅 Upcoming |
+| **04** | **Evaluation Metrics for Machine Learning** | [Homework 4 Notebook](notebooks/homeworks/Homework%204:%20Evaluation%20Metrics%20for%20Machine%20Learning.ipynb) | ✅ Completed |
 | **05** | Deploying Machine Learning Models | `deployment/` | 📅 Upcoming |
 | **06** | Decision Trees and Ensemble Learning | `notebooks/homeworks/` | 📅 Upcoming |
 | **Project 1** | **Midterm Project** | `projects/midterm/` | 📅 Upcoming |
@@ -77,6 +77,26 @@ Full interactive code, correlation heatmap, and outputs can be viewed in [`noteb
 
 ---
 
+## 📝 Homework 4: Evaluation Metrics for Machine Learning Summary
+
+Dataset used: [2026 Lead Scoring Dataset](data/course_lead_scoring_2026.csv) (`course_lead_scoring_2026.csv`)  
+Target: `converted` (binary classification)
+
+### Key Results & Submission Answers
+
+| # | Question | Answer | Method / Explanation |
+|---|---|:---:|---|
+| **1** | **ROC AUC feature importance** | `lead_score` | Highest numerical feature AUC on train set: **0.7882** (vs interaction_count: 0.7649, number_of_courses_viewed: 0.7230, annual_income: 0.6082) |
+| **2** | **Validation ROC AUC** | `0.732` | Logistic regression validation AUC = **0.7318** (rounds to **0.732**) |
+| **3** | **Precision and recall intersection** | `0.63` | Threshold with smallest $\|P - R\|$ difference: **0.63** ($P = 0.7328, R = 0.7253, \|P - R\| = 0.0075$) |
+| **4** | **Maximal F1 score threshold** | `0.41` | Optimal threshold for $F_1$ score = **0.41** ($F_1 = 0.7576$) |
+| **5** | **5-Fold CV standard deviation** | `0.007` | Standard deviation across 5 validation folds: **0.0069** (rounds to **0.007**) |
+| **6** | **Best hyperparameter $C$** | `0.001` | Evaluated across $[10^{-6}, 10^{-3}, 1.0]$; $C = 0.001$ yields highest mean ROC AUC (**0.7492**) |
+
+Full interactive code, precision-recall curves, and ROC plots can be viewed in [`notebooks/homeworks/Homework 4: Evaluation Metrics for Machine Learning.ipynb`](notebooks/homeworks/Homework%204:%20Evaluation%20Metrics%20for%20Machine%20Learning.ipynb).
+
+---
+
 ## 📁 Repository Structure
 
 ```text
@@ -84,12 +104,14 @@ Full interactive code, correlation heatmap, and outputs can be viewed in [`noteb
 │   ├── car_fuel_efficiency_2026.csv     # 2026 Car fuel efficiency dataset (10k records)
 │   ├── course_lead_scoring_2026.csv     # 2026 Lead scoring dataset (5k records)
 │   ├── homework_2026.md                  # Official assignment instructions for HW1
-│   └── homework_03.md                    # Official assignment instructions for HW3
+│   ├── homework_03.md                    # Official assignment instructions for HW3
+│   └── homework_04.md                    # Official assignment instructions for HW4
 ├── notebooks/
 │   ├── homeworks/
 │   │   ├── Homework 1: Introduction to Machine Learning.ipynb
 │   │   ├── Homework 2: Machine Learning for Regression.ipynb
-│   │   └── Homework 3: Machine Learning for Classification.ipynb
+│   │   ├── Homework 3: Machine Learning for Classification.ipynb
+│   │   └── Homework 4: Evaluation Metrics for Machine Learning.ipynb
 │   ├── 01_eda.ipynb
 │   ├── 02_data_transformation.ipynb
 │   └── 03_training_and_analysis.ipynb
